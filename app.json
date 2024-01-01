@@ -1,4 +1,7 @@
 {
   "name": "FutureWhiz",
-  "displayName": "FutureWhiz"
+  "displayName": "FutureWhiz",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-1587586515943690~4361014853",
+  }
 }
