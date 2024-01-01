@@ -77,10 +77,13 @@ function App(): React.JSX.Element {
   useEffect(() => {
     setResponse('');
     renderResponseTextByText(initial);
+
     try {
       appOpenAd.load();
       setTimeout(() => {
-        appOpenAd.show();
+        if (appOpenAd.loaded) {
+          appOpenAd.show();
+        }
       }, 5000);
     } catch {}
   }, []);
@@ -129,11 +132,13 @@ function App(): React.JSX.Element {
 
   useEffect(() => {
     console.log('loadedInterstitial', loadedInterstitial, shakeCount);
-    if (shakeCount > 0 && shakeCount % 3 === 0 && loadedInterstitial) {
+    if (shakeCount > 0 && shakeCount % 7 === 0 && loadedInterstitial) {
       try {
         setShakeCount(0);
         setTimeout(() => {
-          interstitial.show();
+          if (interstitial.loaded) {
+            interstitial.show();
+          }
         }, 2000);
       } catch {}
     }
